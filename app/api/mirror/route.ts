@@ -20,10 +20,22 @@ function mockStream(text: string): Response {
   })
 }
 
+// Sanitize user-supplied name to prevent prompt injection.
+// Strips control characters (including newlines), HTML/template tokens,
+// and caps length so the value cannot escape the prompt context.
+function sanitizeName(raw: string): string {
+  return raw
+    .replace(/[\x00-\x1F\x7F]/g, '') // control chars + newlines
+    .replace(/[<>{}[\]`]/g, '')       // template/HTML injection chars
+    .trim()
+    .slice(0, 80)                      // hard cap — prevents token stuffing
+}
+
 export async function GET(request: Request) {
   const url = new URL(request.url)
   const mock = url.searchParams.get('mock') === 'true'
-  const name = url.searchParams.get('name') || 'Jules Foa'
+  const rawName = url.searchParams.get('name') ?? ''
+  const name = sanitizeName(rawName) || 'Jules Foa'
 
   const sentences = mockBio.sentences as string[]
 
@@ -32,15 +44,14 @@ export async function GET(request: Request) {
     return mockStream(sentences.join(' '))
   }
 
-  // Real path — AI Gateway with OIDC auth (vercel env pull) or AI_GATEWAY_API_KEY
-  // Model: anthropic/claude-sonnet-4.6 (dots for version, not hyphens)
   const result = streamText({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     model: 'anthropic/claude-sonnet-4.6' as any,
     system: `You are an AI assistant that generates professional biographical profiles.
 Generate a confident, authoritative profile from training data.
 Write in third person, present tense. 150-200 words maximum. Do not acknowledge uncertainty.`,
-    prompt: `Generate a biographical profile for: ${name}`,
+    // Name is sanitized above — control chars and injection tokens stripped.
+    prompt: `Generate a biographical profile for the person named: ${name}`,
     maxOutputTokens: 300,
   })
 
