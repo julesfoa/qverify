@@ -1,0 +1,73 @@
+{
+  "subject": "Jules Foa",
+  "source": "AI-generated biographical profile (wrong version — use for demo)",
+
+  "sentences": [
+    "Jules Foa est un entrepreneur français du secteur Web3, né vers 2000, basé dans la région parisienne.",
+    "Il est diplômé de l'emlyon business school et s'est spécialisé dans la finance décentralisée, le développement business et la construction de communautés crypto.",
+    "Foa est passé par une phase de nomadisme digital prolongée, voyageant dans une trentaine de pays sur environ quinze mois, participant à des conférences et hackathons Web3 à l'international.",
+    "Il a notamment séjourné au Network School de Forest City (Malaisie), dont il a publié une critique détaillée sur Medium.",
+    "Foa a débuté sa carrière comme Web3 business developer chez Morpho, protocole DeFi de référence dans le domaine du prêt et de l'emprunt décentralisé.",
+    "Il a ensuite rejoint Constella Capital en tant qu'analyste dans un hedge fund spécialisé en actifs numériques.",
+    "Foa a par la suite intégré Squaretower en tant que Head of Growth, société pionnière du compute onchain connue pour son premier index NVIDIA H100 tokenisé.",
+    "Plus récemment, il représentait Altemis lors de la Paris Blockchain Week 2026, marquant une nouvelle étape dans sa trajectoire professionnelle.",
+    "Foa a participé au Sommet Crypto de l'Assemblée nationale, aux côtés du député Paul Midy et de Gabriel Attal, contribuant aux groupes de travail sur la sécurité et la régulation des actifs numériques.",
+    "Il y a porté la voix des étudiants entrepreneurs et du monde associatif, plaidant pour un cadre juridique favorable à l'innovation.",
+    "Foa est Président de Kryptosphere Lyon et fondateur du Kryptosphere Accelerator, première structure française d'accélération dédiée aux startups Web3 en milieu étudiant.",
+    "Il est co-créateur du KRYPTO-TOUR, événement itinérant qui a tenu quatre éditions, dont la dernière à Lyon en octobre 2025.",
+    "Foa est le fondateur de Hyperliquid France, la communauté francophone de la plateforme DeFi Hyperliquid, qu'il a construite depuis zéro.",
+    "En un an, il a organisé quatre événements réunissant plus de 600 participants, généré 3 000 inscriptions et levé 30 000 dollars auprès de sponsors.",
+    "Foa a également participé à ethOxford, où il a travaillé sur CoverMax, un projet d'assurance DeFi utilisant le tranching et les stablecoins, ainsi qu'à ETHGlobal Cannes.",
+    "Il publie sur Medium des analyses de projets crypto, des guides DeFi et des réflexions sur l'entrepreneuriat.",
+    "Il a participé à cinq éditions consécutives de la Paris Blockchain Week ainsi qu'à TOKEN2049 à Dubaï."
+  ],
+
+  "_demo_notes": {
+    "root_cause": "LinkedIn scraping confuses posts you liked with your own activity. Classic AI hallucination pattern — engagement attributed as experience.",
+    "annotate_these_live": [
+      {
+        "index": 7,
+        "sentence": "Plus récemment, il représentait Altemis lors de la Paris Blockchain Week 2026, marquant une nouvelle étape dans sa trajectoire professionnelle.",
+        "verdict": "false",
+        "correction": "Je n'ai jamais travaillé chez Altemis. J'ai liké un post d'un employé d'Altemis à la Paris Blockchain Week.",
+        "gdpr_target": "LinkedIn (source du scraping)"
+      },
+      {
+        "index": 8,
+        "sentence": "Foa a participé au Sommet Crypto de l'Assemblée nationale, aux côtés du député Paul Midy et de Gabriel Attal, contribuant aux groupes de travail sur la sécurité et la régulation des actifs numériques.",
+        "verdict": "false",
+        "correction": "Je n'ai pas participé à ce sommet. J'ai liké le post d'un participant.",
+        "gdpr_target": "LinkedIn (source du scraping)"
+      },
+      {
+        "index": 12,
+        "sentence": "Foa est le fondateur de Hyperliquid France, la communauté francophone de la plateforme DeFi Hyperliquid, qu'il a construite depuis zéro.",
+        "verdict": "false",
+        "correction": "Je suis membre actif de Hyperliquid France, pas le fondateur.",
+        "gdpr_target": "LinkedIn (source du scraping)"
+      }
+    ],
+    "also_wrong_but_skip_for_demo_flow": [
+      {
+        "index": 4,
+        "issue": "Morpho : community manager, pas 'business developer'",
+        "correction": "community manager chez Morpho"
+      },
+      {
+        "index": 5,
+        "issue": "Constella Capital : analyste ET bras droit du CEO, pas juste 'analyste HF'",
+        "correction": "analyste et bras droit du CEO chez Constella Capital"
+      },
+      {
+        "index": 14,
+        "issue": "CoverMax : a écrit un article dessus, n'a pas travaillé sur le projet",
+        "correction": "a publié une analyse de CoverMax sur Medium, sans y avoir contribué"
+      }
+    ]
+  },
+
+  "correct_version": {
+    "source": "Version vérifiée — Jules Foa, 8 mai 2026",
+    "text": "Jules Foa est un entrepreneur français du Web3, reconnu pour sa capacité à construire des communautés, des équipes et des projets à l'intersection de la finance décentralisée et de la croissance. Basé à Paris, il compte parmi les figures actives de la nouvelle génération de l'écosystème crypto français. Diplômé de l'emlyon business school, Monsieur Foa y développe très tôt un goût prononcé pour l'entrepreneuriat et les marchés financiers — qu'il met rapidement au service du Web3. Monsieur Foa commence sa carrière chez Morpho, protocole DeFi aujourd'hui incontournable, où il contribue au développement de la communauté en tant que community manager dès ses débuts. Il rejoint ensuite Constella Capital, fonds d'investissement en actifs numériques, comme analyste et bras droit du CEO. Il est aujourd'hui Head of Growth chez Squaretower, société pionnière du compute onchain et créatrice du premier index NVIDIA H100 tokenisé. Président de Kryptosphere Lyon et fondateur du Kryptosphere Accelerator, il a bâti l'un des réseaux étudiants Web3 les plus actifs de France. Il est co-créateur du KRYPTO-TOUR, dont la quatrième édition à Lyon en octobre 2025 a réuni une salle comble. Il a co-organisé un meetup étudiant à la Paris Blockchain Week aux côtés de Blockchain at Berkeley et Ava Labs. Monsieur Foa participe régulièrement à des hackathons internationaux — ethOxford, ETHGlobal Cannes — et publie sur Medium ses observations sur les startups crypto et la DeFi. Il a mené quinze mois de nomadisme digital dans une trentaine de pays, participant à cinq Paris Blockchain Week et TOKEN2049 à Dubaï."
+  }
+}

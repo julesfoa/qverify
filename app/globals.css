@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@solana/wallet-adapter-react-ui/styles.css';
+
+@layer base {
+  html {
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #F5F5F7;
+  }
+  body {
+    @apply bg-surface text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply w-full bg-accent text-white py-4 rounded-2xl text-sm font-semibold
+           hover:bg-accent-dark active:scale-[0.98] transition-all
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply w-full bg-white text-gray-700 py-4 rounded-2xl text-sm font-semibold
+           border border-gray-200 hover:border-gray-400 active:scale-[0.98]
+           transition-all shadow-card;
+  }
+  .card {
+    @apply bg-card rounded-2xl shadow-card p-5;
+  }
+  .input-field {
+    @apply w-full bg-white border border-gray-200 rounded-2xl px-4 py-3.5
+           text-sm text-gray-900 placeholder-gray-400
+           focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/20
+           transition-colors;
+  }
+  .page {
+    @apply min-h-screen bg-surface flex flex-col items-center px-4 py-8;
+  }
+  .content {
+    @apply w-full max-w-sm;
+  }
+}
+
+/* Wallet adapter overrides */
+.wallet-adapter-button {
+  background: #FF5873 !important;
+  border-radius: 10px !important;
+  font-family: inherit !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  height: auto !important;
+  padding: 9px 16px !important;
+  white-space: nowrap !important;
+  line-height: 1.4 !important;
+}
+.wallet-adapter-button:hover {
+  background: #E03D57 !important;
+}
+.wallet-adapter-button-trigger {
+  background: #FF5873 !important;
+}
+.wallet-adapter-modal-wrapper {
+  font-family: inherit !important;
+}
